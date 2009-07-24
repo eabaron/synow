@@ -6,7 +6,7 @@
 !   THAT POINT.
        USE Global
        IMPLICIT none
-       INTEGER, PARAMETER :: nradstep=500,nwavestep=1024
+       INTEGER, PARAMETER :: nradstep=350,nwavestep=1024
        REAL (wp) elam(nwavestep)
        REAL (wp) t(nwavestep,nradstep),s(nwavestep,nradstep)
        REAL (wp) td(nwavestep,nradstep),sd(nwavestep,nradstep)

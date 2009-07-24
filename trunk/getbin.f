@@ -38,6 +38,7 @@
 !	  	Now this returns the line list!
       	call initLteLineList('/scratch3/wynton/thomas/', &
       						 '/scratch3/brubeck/lines/', .false.)
+!                             Rollin's cd1_f90.x.bin files cd1_f90.bin
 	  	call LteLineList(tLte, kUnit, kcUnit, lambdamin, lambdamax)
       	call ionCodeInsert(tLte, an(j)*100 + ai(j))
 

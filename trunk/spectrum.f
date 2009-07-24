@@ -2,7 +2,7 @@
        jrlim,grid,last,vmax,vphot,flambda,nlam,zeta,ea,eb)
       USE Global
       IMPLICIT none
-      INTEGER, PARAMETER ::nradstep=500,nwavestep=1024&
+      INTEGER, PARAMETER ::nradstep=350,nwavestep=1024&
          ,iacc=2
       REAL (wp), PARAMETER :: acc=2.0d0
       REAL (wp) elam(nwavestep),xplot(10000),black(10000)
