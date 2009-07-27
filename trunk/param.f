@@ -11,7 +11,7 @@
       use Global
       implicit none
       logical :: flambda
-      integer, parameter :: nradstep=350, nwavestep = 1024
+      integer, parameter :: nradstep=10000, nwavestep = 1024
       integer :: grid, jrlim, nlam, numref, an(50), ai(50)
       real(wp) :: elamx(92, 0:5), gfx(92, 0:5), chix(92, 0:5), &
       taux(92, 0:5, nradstep), vphot, vmax, tbb, ea, eb, &

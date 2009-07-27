@@ -612,7 +612,7 @@
         integer :: ir, rb
         integer(selected_int_kind(1)) :: buff(4)
 
-        write(*,*)trim(path)//recordFile(ionCode)
+!        write(*,*)trim(path)//recordFile(ionCode)
         open(unit = kcUnit, file = trim(path)//recordFile(ionCode), &
              recl = 4, form = 'unformatted', access = 'direct', &
              status = 'old')

@@ -4,7 +4,7 @@
       
       implicit none
       
-      integer, parameter :: nradstep=350, nwavestep = 1024
+      integer, parameter :: nradstep=10000, nwavestep = 1024
       integer blueline, thisline, ifile, isto, isto1, isto2, isto3, &
       		  isto4, used, usedold, numref, is, grid, jrlim, nlam, &
       		  ffilenum, sfilenum, last, i, j, an(50), ai(50)

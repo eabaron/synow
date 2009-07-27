@@ -44,7 +44,7 @@
       
       implicit none
       
-      integer, parameter :: nradstep=350
+      integer, parameter :: nradstep=10000
       real(wp) ctheta(nradstep, 21), crit, pi
       integer jrlim, grid, rad, step
       
@@ -79,7 +79,7 @@
       
       implicit none
       
-      integer, parameter :: nradstep=350  
+      integer, parameter :: nradstep=10000  
       real(wp) taux(92, 0:5, nradstep), gfx(92, 0:5), chix(92, 0:5), &
       		   tex, filparm(50, 5)
       integer an(50), ai(50), i, isto1, isto2, isto3, isto4, isto5, j, &

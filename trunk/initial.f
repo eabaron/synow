@@ -4,7 +4,7 @@
       
       implicit none
       
-      integer, parameter :: nradstep=350
+      integer, parameter :: nradstep=10000
       real(wp) onepvdc, hc, k, elamx(92, 0:5), gfx(92, 0:5), &
       		   chix(92, 0:5), taux(92, 0:5, nradstep), vphot, vmax, &
       		   tauxold, tbb, onex, ea, eb, wk, pwrlawin(50), xsto, &

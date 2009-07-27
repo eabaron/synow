@@ -6,7 +6,7 @@
 !   THAT POINT.
        USE Global
        IMPLICIT none
-       INTEGER, PARAMETER :: nradstep=350,nwavestep=1024
+       INTEGER, PARAMETER :: nradstep=10000,nwavestep=1024
        REAL (wp) elam(nwavestep)
        REAL (wp) t(nwavestep,nradstep),s(nwavestep,nradstep)
        REAL (wp) td(nwavestep,nradstep),sd(nwavestep,nradstep)
@@ -98,7 +98,10 @@
                 rm=SQRT(wk*wk+dr*dr-2.*dr*wk*u)
                 IF (rm.gt.1.and.u*dr.lt.wk) THEN
                   krm=INT(rm*REAL(grid))+1
-                  if(krm .gt. nradstep) stop 'nradstep too small in source.f'
+                  if(krm .gt. nradstep) then
+                   write(0,*)krm,nradstep
+                   stop 'nradstep too small in source.f'
+                  endif
                   drm=rm*REAL(grid)-REAL(krm-1)
                   tav=t(lline,krm)+drm*td(lline,krm)
                   sav=s(lline,krm)+drm*sd(lline,krm)

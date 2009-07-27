@@ -5,7 +5,7 @@
       
       implicit none
       
-      integer, parameter :: nradstep = 500,nwavestep=1024
+      integer, parameter :: nradstep=10000,nwavestep=1024
       integer, parameter :: kUnit = 100000
       integer, parameter :: kcUnit = 100001
       real(wp), parameter :: logGfMin  =   -3.0_wp      
