@@ -193,6 +193,12 @@ don't even have time for a sip of coffee.
 
 The actual output spectrum of synow is placed into the file called ``fort.11''
 which is created by SYNOW each time it runs.  Make sure not to overwrite it!
+Note that spectrum_file is now an input parameter in the namelist and
+fort.11 is the default value but you can set it to anything you
+like. Thus, if you run a grid, you can set spectrum_file to be unique
+for each run and then plot the grid to find the best value of the
+parameter you are varying.
+
 After running SYNOW, you can look at fort.11 using some tool like xmgrace
 or gnuplot.  The first two columns are the important ones.  The last one
 is just the blackbody spectrum of the photosphere.
