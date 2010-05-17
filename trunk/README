@@ -22,7 +22,7 @@ direct (empirical) analysis of SN spectra.  Control of the available
 parameters is accomplished through a namelist input file, read from STDIN.
   An input file has the following format.
 
- $parms
+ &parms
    
     vphot    =  4000.0
     vmax     = 40000.0
@@ -49,10 +49,15 @@ parameters is accomplished through a namelist input file, read from STDIN.
     ve       =  3.00,  3.00,  3.00,  3.00
     temp     = 13.00, 13.00, 13.00, 13.00
 
- $END
+ /
 
-Output from synow is found (after each run) in the file fort.11, in
+Output from synow is found (after each run) in the file fort.11 (which
+can be reset in the namelist), in
 the three columns of lambda - relative flux - blackbody flux.
+
+A much easier way to handle running SYNOW is via a shell script with a
+HEREIS document as shown in runsynow.ksh
+
 
 Parameters in in.dat
 --------------------
