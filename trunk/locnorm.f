@@ -202,7 +202,7 @@
 !            write(*,'(i5,f15.3,1p,2e25.15)') itmp,xx,xx
             call interpolation(ix,x,y,1,1,xx,itmp,yy)   ! Subroutines scew up when the variable kinds mismatch. 
 !            write(*,'(i5,f15.3,1p,2e25.15)') itmp,xx,yy
-            write(2,'(2f25.15)') xx,yy
+            write(iunit_out,'(2f25.15)') xx,yy
           end do do440
       end if
 !
@@ -210,8 +210,8 @@
       if(allocated(y)) deallocate(y)
       if(allocated(y2)) deallocate(y2)
 !
-      close(unit=2)
-      close(unit=1)
+      close(unit=iunit_in)
+      close(unit=iunit_out)
 !
       end subroutine locnorm
 !
