@@ -18,6 +18,7 @@ synow << EOF
     delta_v   = 300.0
     spectrum_file="fort.11"
     debug_out = .true.
+    do_locnorm = .true.
 
 
     an    =    11,  1,  2,  8, 10, 12, 20, 22, 26, 26, 27, 28,
