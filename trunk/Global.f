@@ -29,5 +29,5 @@
       integer, parameter, public :: STDERR = 0
       integer, parameter, public :: STDIN  = 5
       integer, parameter, public :: STDOUT = 6
-
+      logical, public :: do_locnorm=.false.
       end module Global

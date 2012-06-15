@@ -70,7 +70,13 @@
           ENDIF
         ENDDO
 
-        IF (last.eq.nlam) STOP           
+        IF (last.eq.nlam) then
+         if(do_locnorm) then
+          rewind 11
+          call locnorm
+         endif ! do_locnorm
+         STOP 
+        endif                   ! last == nlam
         GOTO 1
         ENDIF
         RETURN

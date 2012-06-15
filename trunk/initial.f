@@ -12,16 +12,17 @@
       		   tau1(50), vmine(50), vmaxe(50), ve(50), temp(50), &
       		   delta_v,sigma_v(50), vmaxg(50)
       character dprof(50)
-      character*132 :: spectrum_file="fort.11"
+      character*132 :: spectrum_file="fort.11",locnorm_file
       integer grid, jrlim, nlam, numref, i, j, anum, aion, ii, ij, ik, &
       		  ai(50), an(50), begin, stop
       logical :: flambda, debug_out=.true.
       
       include "param.inc"
       namelist /parms/ vphot, vmax, tbb, ea, eb, nlam, flambda, &
-      				   taumin, grid, zeta, stspec, numref, delta_v, &
-      				   an, ai, tau1, pwrlawin, vmine, vmaxe, ve, &
-      				   vmaxg, sigma_v, temp, dprof, spectrum_file, debug_out
+         taumin, grid, zeta, stspec, numref, delta_v, &
+         an, ai, tau1, pwrlawin, vmine, vmaxe, ve, &
+         vmaxg, sigma_v, temp, dprof, spectrum_file, debug_out,&
+         do_locnorm
 
       hc = 12400._wp
       k = 8.6167d-5
@@ -41,10 +42,19 @@
 !2     open(unit = 5, file = 'in.dat', status = 'old')
  
       read(*, parms)
+      if(do_locnorm) then
+       i = index(spectrum_file,'.')
+       locnorm_file = spectrum_file(:i-1)//'_flat'//spectrum_file(i:)
+!       write(*,*)locnorm_file
+!       stop
+      endif
       onepvdc = 1.0_wp + delta_v/3d5
       close (5)
       
 	open(11, file=trim(spectrum_file), status='unknown')
+        if(do_locnorm) then
+         open(12, file=trim(locnorm_file), status='unknown')
+        endif
         IF(.not. debug_out) then
            DO j=1,numref
               OPEN (j+60, status='scratch')
