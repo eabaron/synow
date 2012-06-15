@@ -64,7 +64,7 @@
       integer :: icopy=0                                  ! icopy=1 copes the header from afile1 to afile2.  
 !                                                         !   icopy=0 means don't copy the header. 
 !                                                         ! A header allways ends in `END:', but no header is required.
-      integer :: igrid=1                                  ! Interpolate to a logarithmic wavelength grid.
+      integer :: igrid=0                                  ! Interpolate to a logarithmic wavelength grid.
       real(kind=nprecision) :: grid=1.d0/3000.d0          ! The standard natural logarithmic grid interpolation.  
 !                                                         !   Must convert to base 10 grid.
       integer :: imode=-4                                 ! imode=+/- 1 gives ordinary smoothing.
