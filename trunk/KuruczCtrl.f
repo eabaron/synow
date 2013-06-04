@@ -609,14 +609,17 @@
       	integer, intent(in) :: kcUnit, ionCode
       	integer, pointer :: pRecord(:)
 
-        integer :: ir, rb
+        integer :: ir, rb, ierr
         integer(selected_int_kind(1)) :: buff(4)
 
-!        write(*,*)trim(path)//recordFile(ionCode)
+!        write(*,*)"KururczCtrl: ",trim(path)//recordFile(ionCode)
         open(unit = kcUnit, file = trim(path)//recordFile(ionCode), &
              recl = 4, form = 'unformatted', access = 'direct', &
-             status = 'old')
-
+             status = 'old',iostat=ierr)
+             if(ierr .ne. 0) then
+              write(*,*)"error on open",trim(path)//recordFile(ionCode)
+              stop "i/o error"
+             endif
         do ir = 1, size(pRecord)
         	read (unit= kcUnit, rec = ir) rb
          	if (nuxi) then

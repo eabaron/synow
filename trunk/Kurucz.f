@@ -197,6 +197,7 @@
       firstLambda = lbuf(1)
       finalLambda = lbuf(2)
 
+!      write(*,*)"opening cd1_f90.bin",trim(path)
       open(unit = kUnit, file = trim(path) // "cd1_f90.bin", &
            form = 'unformatted', access = 'direct', recl = 16, &
            status = 'old')
