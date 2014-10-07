@@ -37,7 +37,7 @@
 
 !	  	Now this returns the line list!
       	call initLteLineList('/home/baron/synow_lines/', &
-      						 '/scratch3/basie/lines/', .false.)
+      						 '/net/basie/myscratch3/lines/', .false.)
 !                             Rollin's cd1_f90.x.bin files cd1_f90.bin
 	  	call LteLineList(tLte, kUnit, kcUnit, lambdamin, lambdamax)
       	call ionCodeInsert(tLte, an(j)*100 + ai(j))

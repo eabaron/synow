@@ -1,17 +1,17 @@
 #- Mac
 #- ----
 #-
-#   FCOMP = gfortran
-#   FCOPT = -O -ffree-form -m64
-#   FCOPT = -g -Wall -fno-automatic  -ffree-form -fbounds-check
-#   FLOPT =  -m64
+   FCOMP = gfortran
+   FCOPT = -O -ffree-form -m64 -fconvert=big-endian
+#   FCOPT = -g -Wall -fno-automatic  -ffree-form -fbounds-check -fconvert=big-endian
+   FLOPT =  -m64
 #-
 #- Linux with gfortran
 #- ----
 #-
-  FCOMP = gfortran 
-  FCOPT = -O -ffree-form -fconvert=big-endian -m64
-  FLOPT = -m64
+#  FCOMP = gfortran 
+#  FCOPT = -O -ffree-form -fconvert=big-endian -m64
+#  FLOPT = -m64
 #  export FORT_CONVERT100000=big-endian
 #- 
 #- ifort
