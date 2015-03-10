@@ -2,7 +2,7 @@
 ## Filename:      parse_ref.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Fri Mar  6 10:55:05 2015
-## Modified at:   Mon Mar  9 14:43:52 2015
+## Modified at:   Tue Mar 10 09:11:37 2015
 ## Modified by:   Eddie Baron <baron@ou.edu>
 ## Description:   read ref.dat file and use for annotating plots
 ######################################################################
@@ -81,6 +81,16 @@ for i in ref_index:
 
 for x,y in zip(wl_ref,f_ref):
   ax1.plot(x,y,lw=2)
+
+fields = [('Z','i'),('A','f8'),('Name','S13'),('sym','S4'),('MP','f8'),\
+          ("BP",'f8'),('rho','f8'),('crust','f8'),('year','i'),\
+          ('group','i'), ('config','S23'), ('chiion',"f8")]
+  
+# labels = N.loadtxt("periodic_table.dat",skiprows=1,delimiter=',',dtype=fields)  
+labels = N.genfromtxt("periodic_table.dat",skip_header=1,delimiter=',',dtype=None)  
+
+syms = list(labels['f3'])
+syms.replace(" ","")
 
 
 # figname = "example"
