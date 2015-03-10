@@ -36,7 +36,7 @@
 	  	call LteLineList(tLte)
 
 !	  	Now this returns the line list!
-      	call initLteLineList('/home/baron/synow_lines/', &
+      	call initLteLineList('/Users/baron/nhnhome/synow_lines/', &
       						 '/net/basie/myscratch3/lines/', .false.)
 !                             Rollin's cd1_f90.x.bin files cd1_f90.bin
 	  	call LteLineList(tLte, kUnit, kcUnit, lambdamin, lambdamax)
