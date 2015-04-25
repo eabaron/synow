@@ -16,7 +16,7 @@ synow << EOF
     stspec    = 3500.0
     numref    = 10
     delta_v   = 300.0
-    spectrum_file="fit02bjx"
+    spectrum_file="fit02bjx.dat"
     debug_out = .false.
 
 
