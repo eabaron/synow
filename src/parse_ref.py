@@ -2,7 +2,7 @@
 ## Filename:      parse_ref.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Fri Mar  6 10:55:05 2015
-## Modified at:   Sat Apr 25 14:56:05 2015
+## Modified at:   Fri May  1 11:47:09 2015
 ## Modified by:   Eddie Baron <baron@ou.edu>
 ## Description:   read ref.dat file and use for annotating plots
 ######################################################################
@@ -149,6 +149,6 @@ def parse_and_plot_ref(runfile,spectrum_file):
 # fig.savefig(eps_name)
 if __name__ == "__main__":
 
-  runfile = input("Synow runfile:")
-  specfile = input("Synow Spectrum file:")
+  runfile = raw_input("Synow runfile: ")
+  specfile = raw_input("Synow Spectrum file: ")
   parse_and_plot_ref(runfile,specfile)
