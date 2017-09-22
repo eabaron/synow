@@ -39,13 +39,13 @@
 !--
 !-- this for Eddie running on his Macs
 !--
-!      	call initLteLineList('/Users/baron/nhnhome/synow_lines/', &
-!      						 '/net/basie/myscratch3/lines/', .false.)
+!      	call initLteLineList('/net/linmer/myhome2/synow_lines/', &
+!      						 '/net/linmer/myhome2/lines/', .false.)
 !--
 !-- this for general use on the login machines
 !--
-      	call initLteLineList('/net/basie/myscratch3/synow_lines/', &
-      						 '/net/basie/myscratch3/lines/', .false.)
+      	call initLteLineList('/net/linmer/myhome2/synow_lines/', &
+      						 '/net/linmer/myhome2/lines/', .false.)
 !                             Rollin's cd1_f90.x.bin files cd1_f90.bin
 	  	call LteLineList(tLte, kUnit, kcUnit, lambdamin, lambdamax)
       	call ionCodeInsert(tLte, an(j)*100 + ai(j))
