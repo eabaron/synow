@@ -1,6 +1,7 @@
       subroutine GETBIN(wavelength, t, usedold, used, i, filparm, new, &
       				    onepvdc, notcalled)
       use LteLineListClass
+      use KuruczCtrl, only: synow_lines_path,kurucz_linelist_path
       use Global
       
       implicit none
@@ -44,8 +45,8 @@
 !--
 !-- this for general use on the login machines
 !--
-      	call initLteLineList('/net/linmer/myhome2/synow_lines/', &
-      						 '/net/linmer/myhome2/lines/', .false.)
+      	call initLteLineList(synow_lines_path,kurucz_linelist_path, &
+         .false.)
 !                             Rollin's cd1_f90.x.bin files cd1_f90.bin
 	  	call LteLineList(tLte, kUnit, kcUnit, lambdamin, lambdamax)
       	call ionCodeInsert(tLte, an(j)*100 + ai(j))

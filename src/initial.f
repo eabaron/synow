@@ -1,6 +1,7 @@
       subroutine INITIALIZE(onepvdc)
       
       use Global
+      use KuruczCtrl, only: synow_lines_path,kurucz_linelist_path
       
       implicit none
       
@@ -22,7 +23,7 @@
          taumin, grid, zeta, stspec, numref, delta_v, &
          an, ai, tau1, pwrlawin, vmine, vmaxe, ve, &
          vmaxg, sigma_v, temp, dprof, spectrum_file, debug_out,&
-         do_locnorm
+         do_locnorm,synow_lines_path,kurucz_linelist_path
 
       hc = 12400._wp
       k = 8.6167d-5

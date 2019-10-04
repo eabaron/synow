@@ -15,8 +15,14 @@
       public :: initKuruczCtrl
       public :: numRecord
       public :: recordList
-
+      public :: synow_lines_path
+      public :: kurucz_linelist_path
+      
       character(len = 256), save :: path = './'
+      character(len = 256), save :: &
+        synow_lines_path='/net/linmer/myhome2/synow_lines/'
+      character(len = 256), save :: &
+        kurucz_linelist_path = '/net/linmer/myhome2/lines/'
       logical, save :: nuxi = .false.
 
       contains

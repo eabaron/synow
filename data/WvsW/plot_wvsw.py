@@ -49,7 +49,7 @@ ax1.text(30,26,"99dq",fontsize=8)
 ax1.text(30,24,"99aa",fontsize=8)
 ax1.text(30,22,"98es",fontsize=8)
 ax1.text(30,20,"99gp",fontsize=8)
-for i in xrange(len(data_ss['w1'])):
+for i in range(len(data_ss['w1'])):
     p1, = ax1.plot(data_ss['w1'][i],data_ss['w2'][i],ls="None",marker="^",color='blue')
     if data_ss['name'][i] not in ("99dq","99aa","98es","99gp","05hk","00cx","99ee","00E"):
         ax1.text(data_ss['w1'][i],data_ss['w2'][i]-2,\
@@ -63,7 +63,7 @@ for i in xrange(len(data_ss['w1'])):
 
 #circ=pylab.Circle((50.,9.5),radius=1)
 #ax1.add_patch(circ)
-for i in xrange(len(data_cl['w1'])):
+for i in range(len(data_cl['w1'])):
     p2, = ax1.plot(data_cl['w1'][i],data_cl['w2'][i],ls="None",marker="d",color='red')
     if data_cl['name'][i] not in ("91bg","89B"):
         ax1.text(data_cl['w1'][i],data_cl['w2'][i]-2,\
@@ -74,7 +74,7 @@ for i in xrange(len(data_cl['w1'])):
     elif data_cl['name'][i] in ("89B"):
         ax1.text(data_cl['w1'][i]+2,data_cl['w2'][i],\
                      data_cl['name'][i],fontsize=8)
-for i in xrange(len(data_bl['w1'])):
+for i in range(len(data_bl['w1'])):
     p3, = ax1.plot(data_bl['w1'][i],data_bl['w2'][i],ls="None",marker="s",color='green')
     if data_bl['name'][i] not in ("99ej","99cc","81B","02bf"):
         ax1.text(data_bl['w1'][i],data_bl['w2'][i]-2,\
