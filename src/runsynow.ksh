@@ -3,22 +3,24 @@
 synow << EOF 
 
  &parms
-    vphot     =  6000.0
-    vmax      = 25000.0
-    tbb       = 4000
-    ea        =  2900.0
-    eb        = 22000.0
-    nlam      =  1000
-    flambda   =  .true. 
-    taumin    =     0.01
-    grid      =    32
-    zeta      =    1.0
-    stspec    = 4100.0
-    numref    = 1
-    delta_v   = 300.0
-    spectrum_file="synspec.dat"
-    debug_out = .true.
-    do_locnorm = .true.
+    synow_lines_path = '/net/linmer/myhome2/synow_lines/',
+    kurucz_linelist_path = '/net/linmer/myhome2/lines/',
+    vphot     =  6000.0,
+    vmax      = 25000.0,
+    tbb       = 4000,
+    ea        =  2900.0,
+    eb        = 22000.0,
+    nlam      =  1000,
+    flambda   =  .true. ,
+    taumin    =     0.01,
+    grid      =    32,
+    zeta      =    1.0,
+    stspec    = 4100.0,
+    numref    = 1,
+    delta_v   = 300.0,
+    spectrum_file="synspec.dat",
+    debug_out = .true.,
+    do_locnorm = .true.,
 
 
     an    =    2,  22,  1,   2,  8, 10, 12, 20,   26, 26, 27, 28,
