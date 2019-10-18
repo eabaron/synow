@@ -2,7 +2,7 @@
 ## Filename:      parse_ref.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Fri Mar  6 10:55:05 2015
-## Modified at:   Fri May  1 11:47:09 2015
+## Modified at:   Fri Oct 18 15:44:28 2019
 ## Modified by:   Eddie Baron <baron@ou.edu>
 ## Description:   read ref.dat file and use for annotating plots
 ######################################################################
@@ -16,23 +16,7 @@ import os
 import os.path
 import tempfile
 import f90nml
-def parse_runsynow(infile):
-#  
-  fout = tempfile.NamedTemporaryFile(delete=False)
-  good = False
-  with fout:
-    with open(infile,'r') as f:
-      for line in f:
-        if(line.find("&parms") != -1):
-          good = True
-        if(line.find("/") != -1 and good):
-          good = False
-          print(line,file=fout)
-        if(good): print(line,file=fout)
-  tmpfile = fout.name
-  mylist = f90nml.read(tmpfile)
-  if os.path.isfile(tmpfile): os.unlink(tmpfile)
-  return mylist
+from parse_runsynow import parse_runsynow
 
 def parse_and_plot_ref(runfile,spectrum_file):
   fields = [('wl','f8'),('gf','f8'),('z','i'),('istg','i'),('chi','f8')]
@@ -53,7 +37,7 @@ def parse_and_plot_ref(runfile,spectrum_file):
                    
   ions_used = [ z*100+istg for z,istg in zip(an,ai) ]
   ref_ions = []
-  for i in xrange(N.size(ref['wl'])):
+  for i in range(N.size(ref['wl'])):
     ref_ions.append(ref['z'][i]*100 + ref['istg'][i])
   
   ref_index = []
@@ -119,7 +103,7 @@ def parse_and_plot_ref(runfile,spectrum_file):
             ('group','i'), ('config','S23'), ('chiion',"f8")]
   
 # labels = N.loadtxt("periodic_table.dat",skiprows=1,delimiter=',',dtype=fields)  
-  labels = N.genfromtxt("periodic_table.dat",skip_header=1,delimiter=',',dtype=None)  
+  labels = N.genfromtxt("periodic_table.dat",skip_header=1,delimiter=',',dtype=None,encoding='utf8')  
 
   syms = []
   for x in labels['f3']:
@@ -149,6 +133,6 @@ def parse_and_plot_ref(runfile,spectrum_file):
 # fig.savefig(eps_name)
 if __name__ == "__main__":
 
-  runfile = raw_input("Synow runfile: ")
-  specfile = raw_input("Synow Spectrum file: ")
+  runfile = input("Synow runfile: ")
+  specfile = input("Synow Spectrum file: ")
   parse_and_plot_ref(runfile,specfile)

@@ -4,7 +4,7 @@
    FCOMP = gfortran
    FCOPT = -O -ffree-form -m64 -fconvert=big-endian
 #   FCOPT = -g -Wall -fno-automatic  -ffree-form -fbounds-check -fconvert=big-endian
-   FLOPT =  -m64
+   FLOPT =  -m64 -L/usr/lib
 #-
 #- Linux with gfortran
 #- ----
