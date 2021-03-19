@@ -17,21 +17,24 @@
       integer grid, jrlim, nlam, numref, i, j, anum, aion, ii, ij, ik, &
       		  ai(50), an(50), begin, stop
       logical :: flambda, debug_out=.true.
+      character (len=132) :: refdata_path='./'
       
       include "param.inc"
       namelist /parms/ vphot, vmax, tbb, ea, eb, nlam, flambda, &
          taumin, grid, zeta, stspec, numref, delta_v, &
          an, ai, tau1, pwrlawin, vmine, vmaxe, ve, &
          vmaxg, sigma_v, temp, dprof, spectrum_file, debug_out,&
-         do_locnorm,synow_lines_path,kurucz_linelist_path
+         do_locnorm,synow_lines_path,kurucz_linelist_path,refdata_path
 
       hc = 12400._wp
       k = 8.6167d-5
       onex = 1.0_wp
       print *,'INITIALIZING'
+      read(*, parms)
       
 !     READ IN REFERENCE LINE PARAMETERS
-      open(unit = 1, file = 'ref.dat', status = 'old')
+      open(unit = 1, file =  &
+          trim(refdata_path) // 'ref.dat', status = 'old')
 1     read(1, 3, end = 2) alam, agf, anum, aion, aelow
 3     format(F12.4, 1X, F6.3, 1X, I2, 2X, I1, 1X, F12.8)
       elamx(anum, aion) =  alam*10.0_wp
@@ -42,7 +45,6 @@
 !     READ IN PHYSICAL PARAMETERS
 !2     open(unit = 5, file = 'in.dat', status = 'old')
  
-      read(*, parms)
       if(do_locnorm) then
        i = index(spectrum_file,'.')
        locnorm_file = spectrum_file(:i-1)//'_flat'//spectrum_file(i:)
