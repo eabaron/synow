@@ -2,7 +2,7 @@
 ## Filename:      parse_runsynow.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Fri Apr 24 17:16:35 2015
-## Modified at:   Fri Oct 18 15:55:58 2019
+## Modified at:   Fri Oct 18 16:24:51 2019
 ## Modified by:   Eddie Baron <baron@ou.edu>
 ## Description:   parse the namelist
 ######################################################################
@@ -31,5 +31,8 @@ def parse_runsynow(infile):
   tmpfile = '/tmp/fout.tmp'
   mylist = f90nml.read(tmpfile)
   if os.path.isfile(tmpfile): os.unlink(tmpfile)
-  f90nml.write(mylist,'junk.nml')
+  # import json
+  # json.dumps(mylist,indent=1)
+  # import pprint
+  # pprint.pprint(mylist)
   return mylist
