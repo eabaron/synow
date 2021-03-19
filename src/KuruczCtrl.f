@@ -20,9 +20,11 @@
       
       character(len = 256), save :: path = './'
       character(len = 256), save :: &
-        synow_lines_path='/net/linmer/myhome2/synow_lines/'
+        synow_lines_path='/Users/baron/synow/lines/'
+       ! synow_lines_path='/net/linmer/myhome2/synow_lines/'
       character(len = 256), save :: &
-        kurucz_linelist_path = '/net/linmer/myhome2/lines/'
+        kurucz_linelist_path = '/Volumes/small_backup/baron/lines/'
+       ! kurucz_linelist_path = '/net/linmer/myhome2/lines/'
       logical, save :: nuxi = .false.
 
       contains
