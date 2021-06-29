@@ -5,6 +5,7 @@ synow << EOF
  &parms
     synow_lines_path = '/net/linmer/myhome2/synow_lines/',
     kurucz_linelist_path = '/net/linmer/myhome2/lines/',
+    refdata_path = "$HOME/synow/src/",
     vphot     =  6000.0,
     vmax      = 25000.0,
     tbb       = 4000,
