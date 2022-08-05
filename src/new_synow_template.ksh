@@ -11,12 +11,15 @@ VMAX=40000.0
 
 export VPHOT VP VMAX VM
 
+# LINEDIR='/net/linmer/myhome2'
+LINEDIR='/Volumes/small_backup/baron'
+export LINEDIR
 
 $HOME/synow/src/synow << EOF 
 
  &parms
-    synow_lines_path = '/net/linmer/myhome2/synow_lines/',
-    kurucz_linelist_path = '/net/linmer/myhome2/lines/',
+    synow_lines_path = '${LINEDIR}/synow_lines/',
+    kurucz_linelist_path = '${LINEDIR}/lines/',
     refdata_path = '$HOME/synow/src/',
     vphot     = ${VPHOT},
     vmax      = ${VMAX},
@@ -31,7 +34,7 @@ $HOME/synow/src/synow << EOF
     stspec    = 3100.0,
     numref    =  19,
     delta_v   = 300.0,
-    spectrum_file="example.dat",
+    spectrum_file="synow_spectrum.dat",
     debug_out = .true.,
     do_locnorm = .true.,
 
