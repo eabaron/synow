@@ -260,6 +260,7 @@ if __name__ == "__main__":
     import extinction
 
   HOME = os.getenv('HOME')
+  EBHOME = os.path.expanduser("~baron")
   ylab = r'$F_\lambda$ (arbitrary units)'
   xlab = r'$\lambda$ ($\mathrm{\AA}$)'
   minorLocator   = AutoMinorLocator()
@@ -276,7 +277,7 @@ if __name__ == "__main__":
 
                
       
-  OBS_DIR = HOME + '/spec/sn2011fe/mark/'
+  OBS_DIR = EBHOME + '/spec/sn2011fe/mark/'
   
   z = None # these data are already deredshifted
   get_fit(synow_run_file)
