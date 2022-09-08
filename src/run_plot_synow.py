@@ -303,9 +303,9 @@ if __name__ == "__main__":
   ax.set_xlabel(xlab,fontsize=18)
   
   
-  pylab.tick_params(which='both', width=2)
-  pylab.tick_params(which='major', length=7)
-  pylab.tick_params(which='minor', length=4, color='r')
+  plt.tick_params(which='both', width=2)
+  plt.tick_params(which='major', length=7)
+  plt.tick_params(which='minor', length=4, color='r')
   
 
 
