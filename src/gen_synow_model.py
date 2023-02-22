@@ -3,6 +3,9 @@ from synPy.io import read_data
 from spextractor import Spextractor
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
+from os.path import isfile
+import numpy as np
+import pickle
 
 def bold_labels(ax,fontsize=None):
   if fontsize is None:
@@ -24,7 +27,7 @@ global_params = {
 
     'vphot'                : 5000.0,
     'vmax'                 : 40000.0,
-    'tbb'                  : 8000.0,
+    'tbb'                  : 6000.0,
 
     'stspec'               :  3000.0,
     'ea'                   :  3200.0,
@@ -33,6 +36,8 @@ global_params = {
 
 # For fitting
 fn = '/Users/baron/Downloads/SN2023bvj_gr4_NOT_AL_20230221.fits'
+ext = fn.split(".")[-1]
+fnbase = fn.rstrip("."+ext)
 z = 0.00512
 
 
@@ -125,11 +130,24 @@ fsyn = model_data[:, 1]
 
 # Get final save
 model.save()
-spex = Spextractor(obs_data)
-spex.create_model(downsampling=3)
-wobs = obs_data[:,0]
-fobs, _ = spex.predict(wsyn)
-                     
+""" this saves you from 
+    having to rerun the Gaussian process every time, but if you change
+    where you are looking you want to remove the pkl file 
+    (add an unlink after the fig.show
+"""
+fnsmooth = fnbase+"-spexsmooth.pkl"
+if not isfile(fnsmooth):
+  spex = Spextractor(obs_data)
+  spex.create_model(downsampling=3)
+  wobs = obs_data[:,0]
+  fobs, var = spex.predict(wsyn)
+  pkldata  = np.column_stack((wsyn,fobs,var))
+  pickle.dump( pkldata, open( fnsmooth, "wb" ) )
+else:
+  pkldata = pickle.load( open( fnsmooth, "rb" ) )
+  fobs = pkldata[:,1]
+  err =  pkldata[:,2]
+
 fig,ax = plt.subplots(figsize=(8,6))
 
 
