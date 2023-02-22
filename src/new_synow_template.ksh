@@ -11,8 +11,8 @@ VMAX=40000.0
 
 export VPHOT VP VMAX VM
 
-# LINEDIR='/net/linmer/myhome2'
-LINEDIR='/Volumes/small_backup/baron'
+LINEDIR='/net/linmer/myhome2'
+# LINEDIR='/Volumes/small_backup/baron'
 export LINEDIR
 
 $HOME/synow/src/synow << EOF 

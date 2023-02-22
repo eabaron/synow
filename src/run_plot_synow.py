@@ -260,6 +260,7 @@ if __name__ == "__main__":
     import extinction
 
   HOME = os.getenv('HOME')
+  EBHOME = os.path.expanduser("~baron")
   ylab = r'$F_\lambda$ (arbitrary units)'
   xlab = r'$\lambda$ ($\mathrm{\AA}$)'
   minorLocator   = AutoMinorLocator()
@@ -276,7 +277,7 @@ if __name__ == "__main__":
 
                
       
-  OBS_DIR = HOME + '/spec/sn2011fe/mark/'
+  OBS_DIR = EBHOME + '/spec/sn2011fe/mark/'
   
   z = None # these data are already deredshifted
   get_fit(synow_run_file)
@@ -303,9 +304,9 @@ if __name__ == "__main__":
   ax.set_xlabel(xlab,fontsize=18)
   
   
-  pylab.tick_params(which='both', width=2)
-  pylab.tick_params(which='major', length=7)
-  pylab.tick_params(which='minor', length=4, color='r')
+  plt.tick_params(which='both', width=2)
+  plt.tick_params(which='major', length=7)
+  plt.tick_params(which='minor', length=4, color='r')
   
 
 
