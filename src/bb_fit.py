@@ -2,7 +2,7 @@
 ## Filename:      bb_fit.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Tue Feb 24 09:45:44 2015
-## Modified at:   Wed Mar 17 17:11:13 2021
+## Modified at:   Wed Feb 22 13:19:31 2023
 ## Modified by:   Eddie Baron <baron@ou.edu>
 ## Description:   example for class
 ######################################################################
@@ -54,22 +54,27 @@ def estimate_temp(wl_,fl_,sig_,x0=None):
 
 
 if __name__ == "__main__":
-
+  import click
   infile = input("Give File: ")
-  try:
-    wl_,fl_,sig_ = np.loadtxt(infile,unpack=True)
-  except ValueError:
-    wl_,fl_ = np.loadtxt(infile,unpack=True)
+  if 'fit' in infile:
+    wl_,fl_ =  my_funcs.read_sp_data_fits(infile)
     sig_ = 0.05*fl_
   else:
+    try:
+      wl_,fl_,sig_ = np.loadtxt(infile,unpack=True)
+    except ValueError:
+      wl_,fl_ = np.loadtxt(infile,unpack=True)
+      sig_ = 0.05*fl_
+    else:
       Exception("something is wrong")
-
+  z = click.prompt("Give redshift",type=float)
+  wl_ = wl_/(1+z)
   # Initial guess for (a,T), default is 1
   x0    = np.array([1.0e-6, 9600.0])  
   # Usage is very simple:
 
 
-  popt,pcov = estimate_temp(wl_, fl_, sig_,x0=x0)
+  popt,pcov = estimate_temp(wl_, fl_/fl_.max(), sig_,x0=x0)
 
   print("a = {:.4e} T = {:.2f}".format(popt[0],popt[1]))
   print("covariance matrix = ")
@@ -79,7 +84,7 @@ if __name__ == "__main__":
   fig.clf()
   ax1 = fig.add_subplot(111)
   
-  p1 = ax1.plot(wl_,fl_)
+  p1 = ax1.plot(wl_,fl_/fl_.max())
   
   yfit = planck_wl(wl_,*popt)
   
