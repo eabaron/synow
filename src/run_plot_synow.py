@@ -23,12 +23,12 @@ import subprocess
 from matplotlib.ticker import AutoMinorLocator
 import fnmatch
 
-import imp
+import importlib
 
 def have_extinction():
   global extinc_found
   try:
-    imp.find_module('extinction')
+    importlib.util.find_spec('extinction')
     extinc_found = True
   except ImportError:
     extinc_found = False
@@ -269,7 +269,8 @@ if __name__ == "__main__":
 
 
 
-  synow_run_file = "new_synow_template.ksh"
+  synow_run_file = "new_synow_template.sh"
+  synow_run_file = "check_hydrogen_ir.sh"
 
   spectrum_file = "synow_spectrum.dat"
 
@@ -299,6 +300,7 @@ if __name__ == "__main__":
   ax.xaxis.set_minor_locator(minorLocator)
   ax.xaxis.grid(True,which='both')
   ax.set_xlim([3400,10000])
+  ax.set_xlim([10000,50000])
 
   ax.set_ylabel(ylab,fontsize=18)
   ax.set_xlabel(xlab,fontsize=18)

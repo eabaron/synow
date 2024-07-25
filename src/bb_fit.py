@@ -2,8 +2,8 @@
 ## Filename:      bb_fit.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Tue Feb 24 09:45:44 2015
-## Modified at:   Wed Feb 22 13:19:31 2023
-## Modified by:   Eddie Baron <baron@ou.edu>
+## Modified at:   Thu Jul 25 14:22:57 2024
+## Modified by:   Eddie Baron <ebaron@psi.edu>
 ## Description:   example for class
 ######################################################################
 
@@ -69,6 +69,10 @@ if __name__ == "__main__":
       Exception("something is wrong")
   z = click.prompt("Give redshift",type=float)
   wl_ = wl_/(1+z)
+  gunit = click.prompt("Wavelength Units (Ang,mu)",default="Ang")
+  if gunit \= "Ang":
+    wl_ = 1e4*wl_
+
   # Initial guess for (a,T), default is 1
   x0    = np.array([1.0e-6, 9600.0])  
   # Usage is very simple:
@@ -87,6 +91,10 @@ if __name__ == "__main__":
   p1 = ax1.plot(wl_,fl_/fl_.max())
   
   yfit = planck_wl(wl_,*popt)
+
+  # Tin=3000.
+  # yfit_ = planck_wl(wl_,popt[0],Tin)
   
   p2, = ax1.plot(wl_,yfit,lw=2)
+  # p3, = ax1.plot(wl_,yfit_,lw=2)
   fig.show()

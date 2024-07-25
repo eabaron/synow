@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/bin/sh
 
 
 
@@ -13,7 +13,7 @@ export VPHOT VP VMAX VM
 
 # LINEDIR='/net/linmer/myhome2'
 # LINEDIR='/Volumes/small_backup/baron'
-LINEDIR = /Volumes/TBRAID1/baron/MYDATA/lines
+LINEDIR='/Volumes/TBRAID1/baron/MYDATA'
 export LINEDIR
 
 $HOME/synow/src/synow << EOF 
