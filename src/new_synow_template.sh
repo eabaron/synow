@@ -35,7 +35,7 @@ $HOME/synow/src/synow << EOF
     stspec    = 3100.0,
     numref    =  19,
     delta_v   = 300.0,
-    spectrum_file="synow_spectrum.dat",
+    spectrum_file = '${SPECTRUM_FILE}',
     debug_out = .true.,
     do_locnorm = .true.,
 
