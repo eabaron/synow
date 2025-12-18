@@ -2,7 +2,7 @@
 ## Filename:      bb_fit.py
 ## Author:        Eddie Baron <baron@ou.edu>
 ## Created at:    Tue Feb 24 09:45:44 2015
-## Modified at:   Thu Jul 25 14:22:57 2024
+## Modified at:   Mon Dec 15 09:34:15 2025
 ## Modified by:   Eddie Baron <ebaron@psi.edu>
 ## Description:   example for class
 ######################################################################
@@ -70,7 +70,7 @@ if __name__ == "__main__":
   z = click.prompt("Give redshift",type=float)
   wl_ = wl_/(1+z)
   gunit = click.prompt("Wavelength Units (Ang,mu)",default="Ang")
-  if gunit \= "Ang":
+  if gunit != "Ang":
     wl_ = 1e4*wl_
 
   # Initial guess for (a,T), default is 1
